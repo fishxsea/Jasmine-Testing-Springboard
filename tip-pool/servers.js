@@ -17,9 +17,7 @@ function submitServerInfo(evt) {
 	if (serverName !== '') {
 		serverId++;
 		allServers['server' + serverId] = { serverName };
-
 		updateServerTable();
-
 		serverNameInput.value = '';
 	}
 }
@@ -38,7 +36,8 @@ function updateServerTable() {
 
 		appendTd(newTr, curServer.serverName);
 		appendTd(newTr, '$' + tipAverage.toFixed(2));
-
+		let newTd = document.createElement('td');
+		appendDeleteBtn(newTr, 'server');
 		serverTbody.append(newTr);
 	}
 }

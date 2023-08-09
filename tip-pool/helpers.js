@@ -1,13 +1,10 @@
 // accepts 'tipAmt', 'billAmt', 'tipPercent' and sums total from allPayments objects
 function sumPaymentTotal(type) {
 	let total = 0;
-
 	for (let key in allPayments) {
 		let payment = allPayments[key];
-
 		total += Number(payment[type]);
 	}
-
 	return total;
 }
 
@@ -20,6 +17,27 @@ function calculateTipPercent(billAmt, tipAmt) {
 function appendTd(tr, value) {
 	let newTd = document.createElement('td');
 	newTd.innerText = value;
-
 	tr.append(newTd);
 }
+
+function appendDeleteBtn(tr) {
+	let newTd = document.createElement('td');
+	newTd.className = 'deleteBtn';
+	newTd.innerText = 'X';
+	newTd.addEventListener('click', removeEle);
+	tr.append(newTd);
+}
+
+function removeEle(evt) {
+	let ele = evt.target.closest('tr');
+	delete allServers[ele.id];
+	ele.parentNode.removeChild(ele);
+	updateServerTable();
+}
+
+// Questions for person grading:
+/*
+  Why did appendDeleteBtn have a parameter called "type" if it's never used within the function?
+  Is
+
+*/
