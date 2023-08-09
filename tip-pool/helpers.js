@@ -34,10 +34,3 @@ function removeEle(evt) {
 	ele.parentNode.removeChild(ele);
 	updateServerTable();
 }
-
-// Questions for person grading:
-/*
-  Why did appendDeleteBtn have a parameter called "type" if it's never used within the function?
-  Is
-
-*/
